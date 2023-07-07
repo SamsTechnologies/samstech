@@ -1,2 +1,2 @@
-# samstech.github.io
+# samstech
 My portfolio
