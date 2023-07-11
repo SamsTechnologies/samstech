@@ -4,7 +4,7 @@ let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
 
 menuIcon.onclick = ()=>{
-    menuIcon.classList.toggle('fa-xing');
+    menuIcon.classList.toggle('fa-x');
     navbar.classList.toggle('active');
 }
 
@@ -39,26 +39,26 @@ window.onscroll = ()=>{
     menuIcon.classList.remove('fa-xing');
     navbar.classList.remove('active');
 }
-scrollReveal({
-    reset: true,
-    distance:'80px',
-    duration: 2000,
-    delay:200
-});
-scrollReveal().reveal('.home-content, .heading', {origin:'top'});
-scrollReveal().reveal('.home-img, services-container, .portfolio-box .contact form', {origin:'bottom'});
-scrollReveal().reveal('.home-content h1, .about-img', {origin:'left'});
-scrollReveal().reveal('.home-content p, .about-content', {origin:'right'});
+// scrollReveal({
+//     reset: true,
+//     distance:'80px',
+//     duration: 2000,
+//     delay:200
+// });
+// scrollReveal().reveal('.home-content, .heading', {origin:'top'});
+// scrollReveal().reveal('.home-img, services-container, .portfolio-box .contact form', {origin:'bottom'});
+// scrollReveal().reveal('.home-content h1, .about-img', {origin:'left'});
+// scrollReveal().reveal('.home-content p, .about-content', {origin:'right'});
 
 
-const typed = new Typed('.multiple-text',{
-    Strings:['Frontend Developer', 'YouTuber', 'Blogger'],
-    typeSpeed : 100,
-    backSpeed: 100,
-    backDelay: 1000,
-    loop:true
+// const typed = new Typed('.multiple-text',{
+//     Strings:['Frontend Developer', 'YouTuber', 'Blogger'],
+//     typeSpeed : 100,
+//     backSpeed: 100,
+//     backDelay: 1000,
+//     loop:true
 
-})
+// })
 
 const aboutMe = document.querySelector('.about-content p')
 const readMore = document.querySelector('.readMore')
@@ -89,3 +89,63 @@ function sendEmail() {
     
     window.location.href = mailtoLink;
   }
+
+//   form events
+let  p = document.querySelector('.para')
+function animatedForm() {
+    const arrows = document.querySelectorAll('.fa-arrow-down');  
+    arrows.forEach(arrow => {
+        arrow.addEventListener('click', ()=>{
+            const input = arrow.previousElementSibling;
+            const parent = arrow.parentElement;
+            const nextform = parent.nextElementSibling;
+
+            //check for validation
+            if (input.type ==='text' && validateUser(input)) {
+                nextSlide(parent, nextform)
+                input.value=''
+            }else if (input.type ==='email' && validateEmail(input)) {
+                nextSlide(parent, nextform)
+                input.value=''
+            }else if ((input.type ==='password' && validateUser(input))) {
+                nextSlide(parent, nextform)
+                input.value=''
+            }else{
+                parent.style.animation = 'shake 0.5s ease';
+            }
+            //remove animation
+             parent.addEventListener('animationend',()=>{
+                parent.style.animation = '';
+             })
+        })
+    });
+}
+function validateUser(user) {
+    if (user.value.length<6) {
+        error('rgb(189,87,87)')
+    }else{
+        error('rgb(87,189,130')
+        return true
+    }
+}
+function validateEmail(email){
+    const validation = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (validation.test(email.value)) {
+        error('rgb(87,189,130')
+        return true
+    }else{
+        error('rgb(189,87,87)')
+    }
+}
+function nextSlide(parent, nextform) {
+    parent.classList.add('inactive')
+    parent.classList.remove('active') 
+    nextform.classList.add('active')
+    
+}
+let  form = document.querySelector('.forme')
+function error(color) {
+    form.style.backgroundColor=color
+}
+
+animatedForm() 
