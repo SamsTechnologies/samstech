@@ -19,7 +19,7 @@ html{
     /* overflow: hidden; */
 }
 body{
-    background: var(--bg-color);
+    background: var(--text-color);
     color: var(--text-color);
 }
 button{
@@ -29,6 +29,24 @@ button{
 section {
     min-height: 100vh;
     padding: 10rem 9% 2rem;
+}
+.samst{
+    background: url(img/architecture-gcf31ba3f5_1280.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.samst::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
 }
 .header{
     position: fixed ;
@@ -40,7 +58,7 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
+    z-index: 2;
 }
 
 header.sticky{
@@ -71,11 +89,13 @@ header.sticky{
 }
 .home{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    z-index: 1;
 }
 .home-img img{
     width: 35vw;
+    border-left: 10em;
     border-radius:30%;
     animation: floatImage 4s ease-in-out infinite;
     
@@ -116,13 +136,17 @@ span{
     align-items: center;
     width: 4rem;
     height: 4rem;
-    background: transparent;
+    background: white;
     border: .2rem solid var(--main-color);
     border-radius: 50%;
     font-size: 2rem;
     color: var(--main-color);
     margin: 3rem 1.5rem 3rem 0;
     transition: .5s ease;
+}
+.social-media a img{
+    width: 20px;
+    height: 20px;
 }
 .social-media a:hover{
     background: var(--main-color);
@@ -168,6 +192,12 @@ span{
 .about-content p{
     font-size: 1.6rem;
     margin: 2rem 0.3rem;
+}
+.services{
+    background: url(img/slider-left-dec.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
 .services h2{
     margin-bottom: 5rem;
@@ -262,7 +292,7 @@ span{
     align-items: center;
     width: 5rem;
     height: 5rem;
-    background: var(--text-color);
+    background: var(--main-color);
     border-radius: 50%;
 }
 
@@ -270,9 +300,104 @@ span{
     font-size: 2rem;
     color: var(--second-bg-color);
 }
+
+.last-part{
+    background-image: url(/images/footer-bg.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.contact{
+    margin-top: 10em;
+}
 .contact h2{
     margin-bottom: 3rem;
+    color: var(--second-bg-color);
 }
+
+.forme{
+    width: 420px;
+    height: 82px;
+    position: relative;
+    border-radius: 20px;
+}
+/* form */
+
+.field-name,
+.field-email,
+.field-password,
+.field-finish{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    color: #1f242d;
+    font-size: 20px;
+    height: 50px;
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+}
+.forme .para{
+    position: absolute;
+    top: 0;
+    left: 5%;
+    font-size: 16px;
+}
+
+.field-name input,
+.field-email input,
+.field-password input{
+    background: none;
+    border: none;
+    font-size: 20px;
+    flex: 1;
+    height: 100%;
+    outline: none;
+}
+
+.field-name i,
+.field-email i,
+.field-password i,
+.field-finish i{
+    padding: 10px;
+    cursor: pointer;
+}
+div.inactive{
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50% 50%);
+}
+div.active{
+    opacity: 1;
+    pointer-events: all;
+    transform: translate(-50% -50%);
+    
+}
+@keyframes shake{ 
+    0%{
+        transform: translate(-50% -50%) rotate(0deg);
+    }
+    50%{
+        transform: translate(-50% -50%) rotate(10deg);
+    }
+    100%{
+        transform: translate(-50% -50%) rotate(0deg);
+    }
+}
+
+
+
 .contact form{
     max-width: 70rem;
     margin: 1rem auto;
@@ -304,13 +429,26 @@ span{
    margin-top: 2rem;
    cursor: pointer;
 }
+.contact_link_box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.contact .social-media{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .footer{
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    padding: 2rem 9%;
-    background: var(--second-bg-color);
+    padding: 3rem 5%;
+    background: rgb(0, 0, 51, 0.5);
+    
 }
 
 .footer-text p{
@@ -324,6 +462,12 @@ span{
     background: var(--main-color);
     border-radius: .8rem;
     transition: .5s ease;
+}
+.contact_link_box{
+    font-size: 20px;
+}
+.contact_link_box a{
+    margin: 5px;
 }
 .footer-iconTop  a:hover{
     box-shadow: 0 0 1rem var(--main-color);
@@ -417,21 +561,40 @@ span{
     .portfolio-container{
         grid-template-columns: 1fr;
     }
+    .field-name,
+    .field-email,
+    .field-password,
+    .field-finish{
+        width: 80%;
+    }
 }
 @media (max-width:450px){
     html{
         font-size: 50%;
     }
-    .contact form .input-box input{
-        width: 100%;
+    .field-name,
+    .field-email,
+    .field-password,
+    .field-finish{
+        width: 80%;
     }
+
+    
 }
 @media (max-width:365px){
     .home-img img{
         width: 90vw;
     }
     .about-img img{
+      
         width: 90vw;
+    }
+    .field-name,
+    .field-email,
+    .field-password,
+    .field-finish{
+        width: 80%;
+        font-size: 10px;
     }
     .footer{
         flex-direction: column-reverse;
