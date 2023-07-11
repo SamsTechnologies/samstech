@@ -302,7 +302,7 @@ span{
 }
 
 .last-part{
-    background-image: url(/images/footer-bg.png);
+    background-image: url(images/footer-bg.png);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
