@@ -39,26 +39,26 @@ window.onscroll = ()=>{
     menuIcon.classList.remove('fa-xing');
     navbar.classList.remove('active');
 }
-// scrollReveal({
-//     reset: true,
-//     distance:'80px',
-//     duration: 2000,
-//     delay:200
-// });
-// scrollReveal().reveal('.home-content, .heading', {origin:'top'});
-// scrollReveal().reveal('.home-img, services-container, .portfolio-box .contact form', {origin:'bottom'});
-// scrollReveal().reveal('.home-content h1, .about-img', {origin:'left'});
-// scrollReveal().reveal('.home-content p, .about-content', {origin:'right'});
+scrollReveal({
+     reset: true,
+     distance:'80px',
+    duration: 2000,
+   delay:200
+ });
+ scrollReveal().reveal('.home-content, .heading', {origin:'top'});
+ scrollReveal().reveal('.home-img, services-container, .portfolio-box .contact form', {origin:'bottom'});
+ scrollReveal().reveal('.home-content h1, .about-img', {origin:'left'});
+ scrollReveal().reveal('.home-content p, .about-content', {origin:'right'});
 
 
-// const typed = new Typed('.multiple-text',{
-//     Strings:['Frontend Developer', 'YouTuber', 'Blogger'],
-//     typeSpeed : 100,
-//     backSpeed: 100,
-//     backDelay: 1000,
-//     loop:true
+ const typed = new Typed('.multiple-text',{     
+     Strings:['Frontend Developer', 'Search Engine Optimizer', 'Blogger'],
+     typeSpeed : 100,
+     backSpeed: 100,
+     backDelay: 1000,
+     loop:true
 
-// })
+ })
 
 const aboutMe = document.querySelector('.about-content p')
 const readMore = document.querySelector('.readMore')
