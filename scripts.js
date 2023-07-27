@@ -39,16 +39,16 @@ window.onscroll = ()=>{
     menuIcon.classList.remove('fa-xing');
     navbar.classList.remove('active');
 }
-scrollReveal({
-     reset: true,
-     distance:'80px',
-    duration: 2000,
-   delay:200
- });
- scrollReveal().reveal('.home-content, .heading', {origin:'top'});
- scrollReveal().reveal('.home-img, services-container, .portfolio-box .contact form', {origin:'bottom'});
- scrollReveal().reveal('.home-content h1, .about-img', {origin:'left'});
- scrollReveal().reveal('.home-content p, .about-content', {origin:'right'});
+// scrollReveal({
+//      reset: true,
+//      distance:'80px',
+//     duration: 2000,
+//    delay:200
+//  });
+//  scrollReveal().reveal('.home-content, .heading', {origin:'top'});
+//  scrollReveal().reveal('.home-img, services-container, .portfolio-box .contact form', {origin:'bottom'});
+//  scrollReveal().reveal('.home-content h1, .about-img', {origin:'left'});
+//  scrollReveal().reveal('.home-content p, .about-content', {origin:'right'});
 
 // display my skills
 const wordArray= ['FrontEnd Developer', 'Search Engine Optimizer', 'Blogger'];
