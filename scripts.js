@@ -50,15 +50,27 @@ scrollReveal({
  scrollReveal().reveal('.home-content h1, .about-img', {origin:'left'});
  scrollReveal().reveal('.home-content p, .about-content', {origin:'right'});
 
-
- const typed = new Typed('.multiple-text',{     
-     Strings:['Frontend Developer', 'Search Engine Optimizer', 'Blogger'],
-     typeSpeed : 100,
-     backSpeed: 100,
-     backDelay: 1000,
-     loop:true
-
- })
+// display my skills
+const wordArray= ['FrontEnd Developer', 'Search Engine Optimizer', 'Blogger'];
+let currentIndex=0
+const displayDuration =5000;
+const wordDisplay = document.querySelector('.multiple-text')
+function GetNextWord() {
+    const wordShow=wordArray[currentIndex]
+    currentIndex=(currentIndex + 1)% wordArray.length;
+    return wordShow
+}
+function display(duration) {
+    const wordToShow=GetNextWord()
+    wordDisplay.textContent=wordToShow
+    setTimeout(
+        function () {
+            wordDisplay.textContent=''
+            setTimeout(() => {
+                display(duration)
+            }, 1000);
+        }, displayDuration)  
+}display(displayDuration)
 
 const aboutMe = document.querySelector('.about-content p')
 const readMore = document.querySelector('.readMore')
